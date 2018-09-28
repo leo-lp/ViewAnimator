@@ -12,7 +12,7 @@ import ViewAnimator
 class TableViewController: UITableViewController {
 
     private var items = [Any?]()
-    private let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    private let activityIndicator = UIActivityIndicatorView(style: .gray)
     private let animations = [AnimationType.from(direction: .bottom, offset: 30.0)]
 
     override func viewDidLoad() {
@@ -57,7 +57,6 @@ class TableViewController: UITableViewController {
         items.removeAll()
         UIView.animate(views: tableView.visibleCells, animations: animations, reversed: true,
                        initialAlpha: 1.0, finalAlpha: 0.0, completion: {
-            //                                self.tableView.restoreViewsToIdentity()
             self.tableView.reloadData()
             self.activityIndicator.startAnimating()
         })
